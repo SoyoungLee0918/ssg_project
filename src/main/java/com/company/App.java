@@ -22,6 +22,9 @@ public class App {
                     System.out.printf("작가 : ");
                     String author = sc.nextLine().trim();
                     int id = ++wiseSayingLastId;
+
+                    WiseSaying wiseSaying = new WiseSaying(id, content, author);
+
                     System.out.println(id+"번 명언이 등록되었습니다.");
                     break;
                 case "종료":
@@ -32,3 +35,4 @@ public class App {
         sc.close();
     }
 }
+
