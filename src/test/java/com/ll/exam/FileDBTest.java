@@ -6,11 +6,25 @@ import com.company.WiseSaying;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FileDBTest {
+
+    @Test
+    void 특정_폴더에_존재하는_모든_파일의_이름들을_가져온다() {
+        Util.saveNumberToFile("test_data/1.txt", 1);
+        Util.saveNumberToFile("test_data/2.txt", 1);
+        Util.saveNumberToFile("test_data/3.txt", 1);
+
+        List<String> fileNames = Util.getFileNamesFromDir("test_data");
+
+        assertEquals(fileNames.get(0), "1.txt");
+        assertEquals(fileNames.get(1), "2.txt");
+        assertEquals(fileNames.get(2), "3.txt");
+    }
 
     @Test
     void 파일에_숫자_저장(){
